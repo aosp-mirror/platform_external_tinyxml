@@ -36,6 +36,10 @@ LOCAL_SRC_FILES:= \
 
 LOCAL_MODULE:= libtinyxml
 
+LOCAL_SHARED_LIBRARIES := \
+    libc \
+    libstdc++
+
 include $(BUILD_SHARED_LIBRARY)
 
 
