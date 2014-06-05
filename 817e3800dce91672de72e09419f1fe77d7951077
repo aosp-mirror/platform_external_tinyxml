@@ -1,0 +1,7 @@
+Code-Review+2: Ying Wang <wangying@android.com>
+Verified+1: Ian Rogers <irogers@google.com>
+Submitted-by: Ian Rogers <irogers@google.com>
+Submitted-at: Thu, 05 Jun 2014 18:44:53 +0000
+Reviewed-on: https://android-review.googlesource.com/96852
+Project: platform/external/tinyxml
+Branch: refs/heads/master
