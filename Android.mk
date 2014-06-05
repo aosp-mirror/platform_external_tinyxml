@@ -24,6 +24,8 @@ LOCAL_MODULE:= libtinyxml
 LOCAL_CFLAGS+= $(TOOL_CFLAGS)
 LOCAL_LDFLAGS:= $(TOOL_LDFLAGS) -lstdc++ -lc
 
+LOCAL_32_BIT_ONLY := true
+
 include $(BUILD_HOST_STATIC_LIBRARY)
 
 
