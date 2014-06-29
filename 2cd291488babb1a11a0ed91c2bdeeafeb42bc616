@@ -1,0 +1,7 @@
+Code-Review+2: Brian Carlstrom <bdc@google.com>
+Verified+1: Ian Rogers <irogers@google.com>
+Submitted-by: Ian Rogers <irogers@google.com>
+Submitted-at: Sun, 29 Jun 2014 22:28:30 +0000
+Reviewed-on: https://android-review.googlesource.com/99672
+Project: platform/external/tinyxml
+Branch: refs/heads/master
