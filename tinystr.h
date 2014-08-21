@@ -1,6 +1,5 @@
 /*
 www.sourceforge.net/projects/tinyxml
-Original file by Yves Berquin.
 
 This software is provided 'as-is', without any express or implied
 warranty. In no event will the authors be held liable for any
@@ -22,17 +21,6 @@ must not be misrepresented as being the original software.
 distribution.
 */
 
-/*
- * THIS FILE WAS ALTERED BY Tyge Lovset, 7. April 2005.
- *
- * - completely rewritten. compact, clean, and fast implementation.
- * - sizeof(TiXmlString) = pointer size (4 bytes on 32-bit systems)
- * - fixed reserve() to work as per specification.
- * - fixed buggy compares operator==(), operator<(), and operator>()
- * - fixed operator+=() to take a const ref argument, following spec.
- * - added "copy" constructor with length, and most compare operators.
- * - added swap(), clear(), size(), capacity(), operator+().
- */
 
 #ifndef TIXML_USE_STL
 
@@ -41,6 +29,21 @@ distribution.
 
 #include <assert.h>
 #include <string.h>
+
+/*	The support for explicit isn't that universal, and it isn't really
+	required - it is used to check that the TiXmlString class isn't incorrectly
+	used. Be nice to old compilers and macro it here:
+*/
+#if defined(_MSC_VER) && (_MSC_VER >= 1200 )
+	// Microsoft visual studio, version 6 and higher.
+	#define TIXML_EXPLICIT explicit
+#elif defined(__GNUC__) && (__GNUC__ >= 3 )
+	// GCC version 3 and higher.s
+	#define TIXML_EXPLICIT explicit
+#else
+	#define TIXML_EXPLICIT
+#endif
+
 
 /*
    TiXmlString is an emulation of a subset of the std::string template.
@@ -53,7 +56,7 @@ class TiXmlString
 {
   public :
 	// The size type used
-  	typedef unsigned int size_type;
+  	typedef size_t size_type;
 
 	// Error value for find primitive
 	static const size_type npos; // = -1;
@@ -65,21 +68,21 @@ class TiXmlString
 	}
 
 	// TiXmlString copy constructor
-	TiXmlString (const TiXmlString & copy)
+	TiXmlString ( const TiXmlString & copy) : rep_(0)
 	{
 		init(copy.length());
 		memcpy(start(), copy.data(), length());
 	}
 
 	// TiXmlString constructor, based on a string
-	TiXmlString (const char * copy)
+	TIXML_EXPLICIT TiXmlString ( const char * copy) : rep_(0)
 	{
 		init( static_cast<size_type>( strlen(copy) ));
 		memcpy(start(), copy, length());
 	}
 
 	// TiXmlString constructor, based on a string
-	TiXmlString (const char * str, size_type len)
+	TIXML_EXPLICIT TiXmlString ( const char * str, size_type len) : rep_(0)
 	{
 		init(len);
 		memcpy(start(), str, len);
@@ -91,13 +94,11 @@ class TiXmlString
 		quit();
 	}
 
-	// = operator
 	TiXmlString& operator = (const char * copy)
 	{
 		return assign( copy, (size_type)strlen(copy));
 	}
 
-	// = operator
 	TiXmlString& operator = (const TiXmlString & copy)
 	{
 		return assign(copy.start(), copy.length());
@@ -217,7 +218,15 @@ class TiXmlString
 	{
 		if (cap)
 		{
-			rep_ = static_cast<Rep*>(operator new(sizeof(Rep) + cap));
+			// Lee: the original form:
+			//	rep_ = static_cast<Rep*>(operator new(sizeof(Rep) + cap));
+			// doesn't work in some cases of new being overloaded. Switching
+			// to the normal allocation, although use an 'int' for systems
+			// that are overly picky about structure alignment.
+			const size_type bytesNeeded = sizeof(Rep) + cap;
+			const size_type intsNeeded = ( bytesNeeded + sizeof(int) - 1 ) / sizeof( int ); 
+			rep_ = reinterpret_cast<Rep*>( new int[ intsNeeded ] );
+
 			rep_->str[ rep_->size = sz ] = '\0';
 			rep_->capacity = cap;
 		}
@@ -231,7 +240,9 @@ class TiXmlString
 	{
 		if (rep_ != &nullrep_)
 		{
-			operator delete(rep_);
+			// The rep_ is really an array of ints. (see the allocator, above).
+			// Cast it back before delete, so the compiler won't incorrectly call destructors.
+			delete [] ( reinterpret_cast<int*>( rep_ ) );
 		}
 	}
 
