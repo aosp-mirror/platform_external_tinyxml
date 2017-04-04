@@ -58,6 +58,8 @@ LOCAL_SRC_FILES:= \
 
 LOCAL_MODULE:= libtinyxml
 
+LOCAL_VENDOR_MODULE := true
+
 LOCAL_CFLAGS+= $(commonFlags)
 
 LOCAL_SHARED_LIBRARIES := \
