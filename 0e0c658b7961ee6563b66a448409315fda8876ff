@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "861b843d_7132100e",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2017-05-05T18:25:49Z",
+      "side": 1,
+      "message": "Get rid of this too. It\u0027s a noop.",
+      "revId": "0e0c658b7961ee6563b66a448409315fda8876ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
