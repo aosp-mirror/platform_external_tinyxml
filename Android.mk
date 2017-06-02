@@ -5,6 +5,9 @@
 # Add -DTIXML_USE_STL to CFLAGS to use STL.
 #
 
+# TODO: move Wear from libtinyxml to libtinyxml2 like everyone else, then remove this project.
+ifeq ($(CLOCKWORK_PRODUCT),true)
+
 commonSources:= \
 	tinyxml.cpp \
 	tinyxmlparser.cpp \
@@ -57,3 +60,4 @@ LOCAL_CFLAGS+= $(commonFlags)
 include $(BUILD_SHARED_LIBRARY)
 
 
+endif
