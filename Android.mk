@@ -17,37 +17,6 @@ commonFlags := \
         -Wno-logical-op-parentheses \
         -Werror
 
-# For the host
-# =====================================================
-LOCAL_PATH:= $(call my-dir)
-include $(CLEAR_VARS)
-
-LOCAL_SRC_FILES:= \
-	$(commonSources)
-
-LOCAL_MODULE:= libtinyxml
-
-LOCAL_CFLAGS+= $(TOOL_CFLAGS) $(commonFlags)
-LOCAL_LDFLAGS:= $(TOOL_LDFLAGS) -lstdc++ -lc
-
-LOCAL_MULTILIB := both
-
-include $(BUILD_HOST_STATIC_LIBRARY)
-
-
-# For the device (static)
-# =====================================================
-include $(CLEAR_VARS)
-
-LOCAL_SRC_FILES:= \
-	$(commonSources)
-
-LOCAL_MODULE:= libtinyxml
-
-LOCAL_CFLAGS+= $(commonFlags)
-
-include $(BUILD_STATIC_LIBRARY)
-
 
 # For the device
 # =====================================================
