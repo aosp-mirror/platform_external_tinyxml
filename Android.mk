@@ -5,40 +5,19 @@
 # Add -DTIXML_USE_STL to CFLAGS to use STL.
 #
 
+LOCAL_PATH := $(call my-dir)
+
 commonSources:= \
 	tinyxml.cpp \
 	tinyxmlparser.cpp \
 	tinyxmlerror.cpp \
 	tinystr.cpp
 
-# For the host
-# =====================================================
-LOCAL_PATH:= $(call my-dir)
-include $(CLEAR_VARS)
-
-LOCAL_SRC_FILES:= \
-	$(commonSources)
-
-LOCAL_MODULE:= libtinyxml
-
-LOCAL_CFLAGS+= $(TOOL_CFLAGS)
-LOCAL_LDFLAGS:= $(TOOL_LDFLAGS) -lstdc++ -lc
-
-LOCAL_MULTILIB := both
-
-include $(BUILD_HOST_STATIC_LIBRARY)
-
-
-# For the device (static)
-# =====================================================
-include $(CLEAR_VARS)
-
-LOCAL_SRC_FILES:= \
-	$(commonSources)
-
-LOCAL_MODULE:= libtinyxml
-
-include $(BUILD_STATIC_LIBRARY)
+commonFlags := \
+	-Wno-undefined-bool-conversion \
+	-Wno-missing-braces \
+        -Wno-logical-op-parentheses \
+        -Werror
 
 
 # For the device
@@ -50,9 +29,9 @@ LOCAL_SRC_FILES:= \
 
 LOCAL_MODULE:= libtinyxml
 
-LOCAL_SHARED_LIBRARIES := \
-    libc \
-    libstdc++
+LOCAL_VENDOR_MODULE := true
+
+LOCAL_CFLAGS+= $(commonFlags)
 
 include $(BUILD_SHARED_LIBRARY)
 
