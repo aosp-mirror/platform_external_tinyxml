@@ -14,10 +14,11 @@ commonSources:= \
 	tinystr.cpp
 
 commonFlags := \
-	-Wno-undefined-bool-conversion \
-	-Wno-missing-braces \
-        -Wno-logical-op-parentheses \
-        -Werror
+    -Wno-implicit-fallthrough \
+    -Wno-logical-op-parentheses \
+    -Wno-missing-braces \
+    -Wno-undefined-bool-conversion \
+    -Werror
 
 
 # For the device
