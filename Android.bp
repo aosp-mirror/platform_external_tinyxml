@@ -11,10 +11,10 @@ cc_library_shared {
     name: "libtinyxml",
 
     srcs: [
-        "tinyxml.cpp",
-        "tinyxmlparser.cpp",
-        "tinyxmlerror.cpp",
-        "tinystr.cpp",
+//        "tinyxml.cpp",
+//        "tinyxmlparser.cpp",
+//        "tinyxmlerror.cpp",
+//        "tinystr.cpp",
     ],
 
     vendor: true,
