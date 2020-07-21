@@ -14,7 +14,7 @@ cc_library_shared {
 
     // DO NOT USE!
     // Use tinyxml2 (or expat or libxml2 or...) instead.
-    visibility: ["//vendor:__subpackages__"],
+    visibility: ["//visibility:private"],
 
     cflags: [
         "-Wno-implicit-fallthrough",
