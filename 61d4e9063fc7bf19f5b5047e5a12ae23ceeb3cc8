@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb6b2f1e_86a7300d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2020-11-18T19:40:51Z",
+      "side": 1,
+      "message": "i think the historic day has finally come...\n\n(since code changes are easier than manifest changes, i want to see this stick before i remove it from the manifest.)",
+      "revId": "61d4e9063fc7bf19f5b5047e5a12ae23ceeb3cc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
