@@ -1,0 +1,8 @@
+Code-Review+2: Tom Cherry <tomcherry@google.com>
+Code-Review+2: Dan Albert <danalbert@google.com>
+Presubmit-Verified+1: Treehugger Robot <treehugger-gerrit@google.com>
+Submitted-by: Elliott Hughes <enh@google.com>
+Submitted-at: Wed, 18 Nov 2020 21:35:09 +0000
+Reviewed-on: https://android-review.googlesource.com/c/platform/external/tinyxml/+/1431733
+Project: platform/external/tinyxml
+Branch: refs/heads/master
