@@ -1,0 +1,11 @@
+Code-Review+2: Elliott Hughes <enh@google.com>
+Code-Review+2: Herbert Xue <herbertxue@google.com>
+Autosubmit+1: Elliott Hughes <enh@google.com>
+Lint+1: Lint 🤖 <ayeaye-gerrit@google.com>
+Bypass-Presubmit+1: Herbert Xue <herbertxue@google.com>
+Presubmit-Verified-1: Treehugger Robot <treehugger-gerrit@google.com>
+Submitted-by: Herbert Xue <herbertxue@google.com>
+Submitted-at: Thu, 19 Nov 2020 06:32:20 +0000
+Reviewed-on: https://android-review.googlesource.com/c/platform/external/tinyxml/+/1504281
+Project: platform/external/tinyxml
+Branch: refs/heads/master
