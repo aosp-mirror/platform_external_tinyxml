@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "205e6cda_729ba1d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2020-12-14T19:45:28Z",
+      "side": 1,
+      "message": "(amlogic have introduced a new user in the year i\u0027ve been trying to get qcom to move over. i\u0027ve filed the bug, but we might have to `sleep(30)` to get them to care before we can actually remove...)",
+      "revId": "6e88470e56d725d4dc4225f0218a5bb09a009953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
