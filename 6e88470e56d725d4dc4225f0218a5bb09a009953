@@ -1,0 +1,11 @@
+Code-Review+2: Tom Cherry <tomcherry@google.com>
+Code-Review+1: Herbert Xue <herbertxue@google.com>
+Code-Review+2: Haibo Huang <hhb@google.com>
+Code-Review+2: Dan Albert <danalbert@google.com>
+Lint+1: Lint 🤖 <ayeaye-gerrit@google.com>
+Presubmit-Verified+2: Treehugger Robot <treehugger-gerrit@google.com>
+Submitted-by: Elliott Hughes <enh@google.com>
+Submitted-at: Mon, 11 Jan 2021 23:41:09 +0000
+Reviewed-on: https://android-review.googlesource.com/c/platform/external/tinyxml/+/1526138
+Project: platform/external/tinyxml
+Branch: refs/heads/master
